@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<div id="Fullpage">
+<head>
+    <title>Electron Sockets App</title>
+    <script>//Load the sockets script here later</script>
+    <style>
+        #Fullpage {
+            padding-top: 20%;            
+            padding-bottom: 29%;            
+            background-color: rgb(142, 174, 233);
+            text-align: center; /* Everything inside the element with id Fullpage will be centered*/
+            font-family: Arial, Helvetica, sans-serif; 
+            font-style: normal;
+            border-radius: 5%;
+        }
+
+        #btnreplace {
+            font-family: 'Franklin Gothic Medium';
+            padding: 1%;
+            border-width: 0;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Electron Sockets Tester</h1>
+    <p id="testpara">This Paragraph will be replaced by secret information only accessible from the server.</p>
+    <button id="btnreplace" onclick="replacetext()">Replace</button>
+    <script>
+        function replacetext() {
+            //Add Socket Emission, Detection and Paragraph replacement here.
+        }
+
+    </script>
+</body>
+</div>

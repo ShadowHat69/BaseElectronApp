@@ -1,0 +1,30 @@
+{
+  "name": "testelectron",
+  "version": "1.0.1",
+  "description": "Just testing socket io in electron.",
+  "main": "main.js",
+  "scripts": {
+    "test": "@Echo No Tests Defined",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadowHat69/ElectronTest.git"
+  },
+  "keywords": [
+    "Electron",
+    "Test"
+  ],
+  "author": "Talha Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShadowHat69/ElectronTest/issues"
+  },
+  "homepage": "https://github.com/ShadowHat69/ElectronTest#readme",
+  "dependencies": {
+    "electron": "^35.0.0",
+    "express": "^4.21.2",
+    "express-basic-auth": "^1.2.1",
+    "socket.io": "^4.8.1"
+  }
+}
