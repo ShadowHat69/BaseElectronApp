@@ -2,7 +2,8 @@
 <div id="Fullpage">
 <head>
     <title>Electron Sockets App</title>
-    <script>//Load the sockets script here later</script>
+    <link rel="icon" type="image/x-icon" href="http://localhost:3000/favicon.ico">
+    <script src="/socket.io/socket.io.js"></script> <!-- Load the Socket io here. Despite not being the actual location of the file Express intercepts this requests and serves the correct file -->
     <style>
         #Fullpage {
             padding-top: 20%;            
@@ -23,13 +24,44 @@
     </style>
 </head>
 <body>
-    <h1>Electron Sockets Tester</h1>
+    <h1>Rocker Switch</h1>
     <p id="testpara">This Paragraph will be replaced by secret information only accessible from the server.</p>
-    <button id="btnreplace" onclick="replacetext()">Replace</button>
+    <p>http://localhost:3000<p>
+
+    <button class="button" id="btn1" onclick="fliptheswitch('btn1', 'btn2')">Button 1</button>
+    <button class="button" id="btn2" onclick="fliptheswitch('btn2', 'btn1')">Button 2</button>
     <script>
-        function replacetext() {
-            //Add Socket Emission, Detection and Paragraph replacement here.
+       var socket = io(); // This makes it so the client triggers the automatic connect and disconnect emits
+
+        function fliptheswitch(self, other) {
+
+            socket.emit('buttonpress', self, other);
+            console.log("Click Emitted");
+            
         }
+
+        socket.on('btnresponse', (lock, unlock) => {
+
+            //console.log(lock);
+            //console.log(unlock);
+
+            let pressed = document.getElementById(lock);
+            let unpressed = document.getElementById(unlock);
+
+
+            pressed.setAttribute('disabled', 'disabled');
+            unpressed.removeAttribute('disabled');
+
+            console.log('Rocked The Buttons')
+        });
+
+        socket.on('lockall', () => {
+            let btnself  = document.getElementsByClassName('button');
+            for (let index = 0; index < btnself.length; index++) {
+                btnself[index].setAttribute('disabled', 'disabled');
+            }
+            console.log('This should never trigger')
+        });
 
     </script>
 </body>

@@ -10,12 +10,13 @@ To rebuild this project.
 -Sockets
 -Express
 -Express-Basic-Auth
+-Node Open
 
 To do this use the following commands
 
 cd {project directory}
 npm install electron --save-dev~
-npm install express socket.io express-basic-auth
+npm install express socket.io express-basic-auth open
 
 To run the electron server use start.bat or type:
 npm run start
